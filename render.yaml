@@ -1,0 +1,18 @@
+services:
+  # Backend API Service
+  - type: web
+    name: servify-backend
+    env: node
+    plan: free # Ensures it uses Render's 100% free tier
+    rootDir: server
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: PORT
+        value: 5000
+      - key: NODE_ENV
+        value: production
+      - key: MONGODB_URI
+        sync: false # You will enter this in the Render UI
+      - key: JWT_SECRET
+        sync: false # You will enter this in the Render UI
